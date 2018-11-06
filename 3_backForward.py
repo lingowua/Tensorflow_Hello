@@ -12,6 +12,7 @@ a = tf.matmul(x, w1)
 y = tf.matmul(a, w2)
 
 # 损失函数和反向传播
+# clip_by_value 用来把数限定在某一范围
 y = tf.sigmoid(y)
 cross_entropy = -tf.reduce_mean(y_ * tf.log(tf.clip_by_value(y, 1e-10, 1.0)) + (
     1 - y_) * tf.log(tf.clip_by_value(1 - y, 1e-10, 1.0)))
